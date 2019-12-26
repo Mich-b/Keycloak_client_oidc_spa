@@ -20,7 +20,6 @@ export class AppAuthNService {
       post_logout_redirect_uri: `${Constants.clientRoot}`,
       response_type: 'code',
       scope: Constants.clientScope,
-      extraQueryParams: {audience:Constants.apiAudience},
     };
     this._userManager = new UserManager(settings);
   }

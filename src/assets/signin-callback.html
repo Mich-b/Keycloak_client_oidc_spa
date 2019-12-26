@@ -2,14 +2,13 @@
 <script src="oidc-client.min.js"></script>
 <script>
    var settings = {
-      authority: 'https://authncourse.eu.auth0.com/',
-      client_id: 'xx0qugSvBSo83qlDBMCNidyMMuCGVXpl',
-      redirect_uri: 'https://gracious-kare-74625e.netlify.com/assets/signin-callback.html',
-      silent_redirect_uri: 'https://gracious-kare-74625e.netlify.com/assets/silent-callback.html',
-      post_logout_redirect_uri: 'https://gracious-kare-74625e.netlify.com',
+      authority: 'http://localhost/auth/realms/master/',
+      client_id: 'oidc-spa',
+      redirect_uri: 'http://localhost:4200/assets/signin-callback.html',
+      silent_redirect_uri: 'http://localhost:4200/assets/silent-callback.html',
+      post_logout_redirect_uri: 'http://localhost:4200',
       response_type: 'code',
-      scope: 'openid profile email read',
-      extraQueryParams: {audience:"https://localapi.internal"},
+      scope: 'openid profile email',
     };
   var mgr = new Oidc.UserManager(settings);
   mgr.signinRedirectCallback().then(() => {
