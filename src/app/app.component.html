@@ -1,19 +1,30 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Keycloak client for a WebAuthn and HIBP demo
-  </h1>
-</div>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+  <a class="navbar-brand" href="#">Keycloak Angular Client</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+
 <div>
-  <button (click)='onLogin()'>Login</button>
-  <!-- <button (click)='onCallAPI()'>Call API</button> -->
-  <button (click)='onRenewToken()'>Renew Token</button>
-  <button (click)='onLogout()'>Logout</button>
+
+  <button type="button" class="btn btn-secondary btn-space" (click)='onLogin()'>Login</button>
+  <button type="button" class="btn btn-secondary btn-space" (click)='onLogout()'>Logout</button>
+  <br>
+
+  <br>
 </div>
-<pre>{{currentUserJson}}</pre>
-<div>
-  <h2>Messages</h2>
+<div *ngIf="this.currentUser == null"> Please click the login button</div>
+<div *ngIf="this.currentUser != null"> You have successfully logged in!
+  <pre >{{currentUserJson}}</pre>
+</div>
+  <div>
+<!--   <h2>Messages</h2>
   <ul>
     <li *ngFor='let msg of messages'>{{msg}}</li>
   </ul>
-</div>
+</div> -->
+
+<footer>
+  <p  class="text-xs-center">© Michael Boeynaems</p>
+</footer>

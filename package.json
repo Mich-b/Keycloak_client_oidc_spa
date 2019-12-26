@@ -22,8 +22,10 @@
     "@angular/platform-browser-dynamic": "^8.2.14",
     "@angular/router": "^8.2.14",
     "ajv": "^6.10.2",
+    "bootstrap": "^4.4.1",
     "compiler": "^0.1.2",
     "core-js": "^3.6.1",
+    "jquery": "^3.4.1",
     "oidc-client": "1.10.1",
     "rxjs": "^6.5.3",
     "zone.js": "^0.10.2"
