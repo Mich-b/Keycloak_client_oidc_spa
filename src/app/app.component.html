@@ -5,20 +5,21 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 </nav>
-
+<div class="d-flex justify-content-center">
+<div class="my-auto text-center">
 <div>
-
   <button type="button" class="btn btn-secondary btn-space" (click)='onLogin()'>Login</button>
   <button type="button" class="btn btn-secondary btn-space" (click)='onLogout()'>Logout</button>
   <br>
 
   <br>
-</div>
+  </div>
 <div *ngIf="this.currentUser == null"> Please click the login button</div>
-<div *ngIf="this.currentUser != null"> You have successfully logged in!
-  <pre >{{currentUserJson}}</pre>
-</div>
-  <div>
+  <div *ngIf="this.currentUser != null"> You have successfully logged in!
+    <pre >{{currentUserJson}}</pre>
+  </div>
+  </div>
+  </div>
 <!--   <h2>Messages</h2>
   <ul>
     <li *ngFor='let msg of messages'>{{msg}}</li>
@@ -26,5 +27,5 @@
 </div> -->
 
 <footer>
-  <p  class="text-xs-center">© Michael Boeynaems</p>
+  <p  class="text-xs-center">© <a href="https://www.michaelboeynaems.com/">Michael Boeynaems</a></p>
 </footer>
