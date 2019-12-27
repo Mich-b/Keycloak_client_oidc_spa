@@ -15,6 +15,7 @@
   <br>
   </div>
 <div *ngIf="this.currentUser == null"> Please click the login button</div>
+<div *ngIf="this.currentUser == null"> Everyone can register an account on the login page. </div>
   <div *ngIf="this.currentUser != null"> You have successfully logged in!
     <pre >{{currentUserJson}}</pre>
   </div>
