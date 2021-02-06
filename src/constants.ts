@@ -1,5 +1,5 @@
 export class Constants {
-  public static stsAuthority = 'https://login.michaelboeynaems.com/auth/realms/WebAuthnTest/';
+  public static stsAuthority = 'https://login.portasecura.com/auth/realms/WebAuthnTest/';
   public static clientId = 'oidc-spa';
   public static clientRoot = 'https://demo.michaelboeynaems.com/';
   public static clientScope = 'openid profile email';
