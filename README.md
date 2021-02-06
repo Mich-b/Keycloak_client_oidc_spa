@@ -15,6 +15,7 @@ You probably will have to make changes to the config in the following files:
 * /src/constants.ts
 * /src/assets/signin-callback.html
 * /src/assets/silent-callback.html
+* /environments/*
 
 ## run the project
 *npm install
