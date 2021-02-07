@@ -9,6 +9,9 @@ WebAutn can also be used as the sole factor and hence replace passwords complete
 - currently only the client is online: https://demo.michaelboeynaems.com
 - please host the server yourself based on https://github.com/Mich-b/Keycloak_fido2_hibp
 
+# About access and refresh token expiry
+See https://github.com/Mich-b/Keycloak_fido2_hibp
+
 # Get started
 ## change config
 You probably will have to make changes to the config in the following files:

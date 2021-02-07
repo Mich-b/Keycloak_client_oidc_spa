@@ -17,7 +17,7 @@ export class AppAuthNService {
       client_id: Constants.clientId,
       redirect_uri: `${Constants.clientRoot}assets/signin-callback.html`,
       automaticSilentRenew: true,
-      accessTokenExpiringNotificationTime : 240,
+      accessTokenExpiringNotificationTime : 200,
       silent_redirect_uri: `${Constants.clientRoot}assets/silent-callback.html`,
       post_logout_redirect_uri: `${Constants.clientRoot}`,
       response_type: 'code',
