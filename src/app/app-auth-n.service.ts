@@ -10,7 +10,6 @@ export { User };
 export class AppAuthNService {
 
   _userManager: UserManager;
-  _user: User;
 
   constructor() {
     var settings = {
@@ -26,9 +25,7 @@ export class AppAuthNService {
     };
     this._userManager = new UserManager(settings);
 
-    this._userManager.events.addUserLoaded(function(){
-      console.log("user reloaded...");
-    });
+
   }
 
   public getUser(): Promise<User> {

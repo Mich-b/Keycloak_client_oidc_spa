@@ -12,18 +12,24 @@ Log.level = Log.DEBUG;
   styleUrls: ['./app.component.css']
 })
 
-
-
 export class AppComponent implements OnInit {
-  
+
   constructor(public authn: AppAuthNService, public apiService: TestApiService) {
   }
 
   messages: string[] = [];
+
+
+
+
   currentUser : User;
 
-
   ngOnInit(): void {
+    this.authn._userManager.events.addUserLoaded(function(){
+      this.currentUser = this.authn.getUser; 
+      console.log(this.currentUser);     
+    });    
+
     this.authn.getUser().then(user => {
       this.currentUser = user;
 
