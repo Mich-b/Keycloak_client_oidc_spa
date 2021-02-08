@@ -17,7 +17,7 @@
     <div *ngIf="this.currentUser == null"> Everyone can register an account on the login page. </div>
     </div>
     <div class="text-left" *ngIf="this.currentUser != null"> You have successfully logged in!
-      <pre >{{currentUserJson}}</pre>
+      <pre >{{user.id_token}}</pre>
     </div>
   </div>
 </div>

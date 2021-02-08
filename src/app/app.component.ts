@@ -19,9 +19,7 @@ export class AppComponent implements OnInit {
 
   messages: string[] = [];
 
-  get currentUserJson() : string {
-    return JSON.stringify(this.currentUser, null, 2);
-  }
+
 
   currentUser : User;
 
