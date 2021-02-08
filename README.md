@@ -28,3 +28,5 @@ You probably will have to make changes to the config in the following files:
 ## (optional) host on Netlify
 Simply drop the /dist/App folder in Netlify, or link your Github forked repo. 
 
+## enable logging in the console
+Oidc.Log.logger = console;

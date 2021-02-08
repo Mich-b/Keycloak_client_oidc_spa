@@ -1,20 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { AppAuthNService, User } from './app-auth-n.service';
 import { TestApiService } from './test-api.service';
+import { Log } from 'oidc-client';
+
+Log.logger = console;
+Log.level = Log.DEBUG;
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
+  
   constructor(public authn: AppAuthNService, public apiService: TestApiService) {
   }
 
   messages: string[] = [];
+
   get currentUserJson() : string {
     return JSON.stringify(this.currentUser, null, 2);
   }
+
   currentUser : User;
 
   ngOnInit(): void {

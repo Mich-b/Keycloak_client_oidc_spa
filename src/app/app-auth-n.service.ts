@@ -24,6 +24,9 @@ export class AppAuthNService {
       scope: Constants.clientScope,
     };
     this._userManager = new UserManager(settings);
+    this._userManager.events.addUserLoaded(function(){
+      console.log("user reloaded...");
+  });
   }
 
   public getUser(): Promise<User> {
