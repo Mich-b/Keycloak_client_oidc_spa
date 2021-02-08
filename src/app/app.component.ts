@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppAuthNService, User } from './app-auth-n.service';
 import { TestApiService } from './test-api.service';
 import { Log } from 'oidc-client';
+import { Observable } from 'rxjs';
 
 Log.logger = console;
 Log.level = Log.DEBUG;
@@ -13,15 +14,13 @@ Log.level = Log.DEBUG;
 })
 
 export class AppComponent implements OnInit {
-  
+  user$: Observable<User>;
   constructor(public authn: AppAuthNService, public apiService: TestApiService) {
   }
 
   messages: string[] = [];
-
-
-
   currentUser : User;
+
 
   ngOnInit(): void {
     this.authn.getUser().then(user => {
