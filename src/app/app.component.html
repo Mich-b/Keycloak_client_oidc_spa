@@ -10,7 +10,7 @@
     <div class="my-auto text-center">
       <button type="button" class="btn btn-secondary btn-space" (click)='onLogin()'>Login</button>
       <button type="button" class="btn btn-secondary btn-space" (click)='onLogout()'>Logout</button>
-      <button  *ngIf="this.currentUser.refresh_token == null" type="button" class="btn btn-secondary btn-space" (click)='onRemoveRefreshToken()()'>Delete refresh token</button>
+      <button *ngIf="this.currentUser && this.currentUser.refresh_token" type="button" class="btn btn-secondary btn-space" (click)='onRemoveRefreshToken()'>Delete refresh token</button>
 
       <br>
 
@@ -18,7 +18,7 @@
     <div *ngIf="this.currentUser == null"> Please click the login button</div>
     <div *ngIf="this.currentUser == null"> Everyone can register an account on the login page. </div>
     </div>
-    <div *ngIf="currentUser">
+    <div *ngIf="this.currentUser">
       <pre>{{currentUser | json}}</pre>
     </div>
   </div>

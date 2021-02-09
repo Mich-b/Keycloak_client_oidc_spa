@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
         this.addMessage("User Not Logged In");
       }
     }).catch(err => this.addError(err));
+    
     //everytime there's a change in the loaded user
     this.loadedUserSub = this.authn._userManager.events.addUserLoaded((user) => {      
         this.currentUser = user;
