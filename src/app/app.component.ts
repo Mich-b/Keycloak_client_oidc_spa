@@ -20,13 +20,20 @@ export class AppComponent implements OnInit {
   constructor(public authn: AppAuthNService, public apiService: TestApiService) {
   }
 
-  get currentUserJson() : string {
-    return JSON.stringify(this.currentUser, null, 2);
-  }
-
   ngOnInit(): void {
+    //initial loading
+    this.authn.getUser().then(user => {
+      this.currentUser = user;
+
+      if (user){
+        this.addMessage("User Logged In");
+      }
+      else {
+        this.addMessage("User Not Logged In");
+      }
+    }).catch(err => this.addError(err));
+    //everytime there's a change in the loaded user
     this.loadedUserSub = this.authn._userManager.events.addUserLoaded((user) => {      
-        console.log("loaded user");
         this.currentUser = user;
   });
   }
@@ -42,6 +49,10 @@ export class AppComponent implements OnInit {
   addError(msg: string | any) {
     this.messages.push("Error: " + msg && msg.message);
   }
+
+  public onRemoveRefreshToken() {
+    delete this.currentUser.refresh_token
+   }
 
   public onLogin() {
     this.clearMessages();

@@ -10,6 +10,8 @@
     <div class="my-auto text-center">
       <button type="button" class="btn btn-secondary btn-space" (click)='onLogin()'>Login</button>
       <button type="button" class="btn btn-secondary btn-space" (click)='onLogout()'>Logout</button>
+      <button  *ngIf="this.currentUser.refresh_token == null" type="button" class="btn btn-secondary btn-space" (click)='onRemoveRefreshToken()()'>Delete refresh token</button>
+
       <br>
 
       <br>
