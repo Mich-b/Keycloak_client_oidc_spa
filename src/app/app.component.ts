@@ -14,23 +14,20 @@ Log.level = Log.DEBUG;
 
 export class AppComponent implements OnInit {
   loadedUserSub: any;
+  messages: string[] = [];
+  currentUser : User;
+  
   constructor(public authn: AppAuthNService, public apiService: TestApiService) {
   }
-
-  messages: string[] = [];
 
   get currentUserJson() : string {
     return JSON.stringify(this.currentUser, null, 2);
   }
 
-  currentUser : User;
-
   ngOnInit(): void {
-    this.loadedUserSub = this.authn._userManager.events.addUserLoaded(function(){      
-      this.authn.getUser().then(user => {
+    this.loadedUserSub = this.authn._userManager.events.addUserLoaded((user) => {      
         console.log("loaded user");
         this.currentUser = user;
-      }).catch(err => this.addError(err));
   });
   }
 
