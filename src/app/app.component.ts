@@ -13,33 +13,25 @@ Log.level = Log.DEBUG;
 })
 
 export class AppComponent implements OnInit {
-
+  loadedUserSub: any;
   constructor(public authn: AppAuthNService, public apiService: TestApiService) {
   }
 
   messages: string[] = [];
 
-
-
+  get currentUserJson() : string {
+    return JSON.stringify(this.currentUser, null, 2);
+  }
 
   currentUser : User;
 
   ngOnInit(): void {
-    this.authn._userManager.events.addUserLoaded(function(){
-      this.currentUser = this.authn.getUser; 
-      console.log(this.currentUser);     
-    });    
-
-    this.authn.getUser().then(user => {
-      this.currentUser = user;
-
-      if (user){
-        this.addMessage("User Logged In");
-      }
-      else {
-        this.addMessage("User Not Logged In");
-      }
-    }).catch(err => this.addError(err));
+    this.loadedUserSub = this.authn._userManager.events.addUserLoaded(function(){      
+      this.authn.getUser().then(user => {
+        console.log("loaded user");
+        this.currentUser = user;
+      }).catch(err => this.addError(err));
+  });
   }
 
   clearMessages() {

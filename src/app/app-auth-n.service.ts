@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserManager, UserManagerSettings, User } from 'oidc-client';
 import { Constants } from '../constants';
+import { Subject } from 'rxjs';
 
 export { User };
 
@@ -8,7 +9,6 @@ export { User };
   providedIn: 'root'
 })
 export class AppAuthNService {
-
   _userManager: UserManager;
 
   constructor() {
@@ -24,8 +24,6 @@ export class AppAuthNService {
       scope: Constants.clientScope,
     };
     this._userManager = new UserManager(settings);
-
-
   }
 
   public getUser(): Promise<User> {
