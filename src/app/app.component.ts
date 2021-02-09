@@ -52,7 +52,9 @@ export class AppComponent implements OnInit {
   }
 
   public onRemoveRefreshToken() {
-    delete this.currentUser.refresh_token
+    delete this.currentUser.refresh_token;
+    this.authn._userManager.storeUser(this.currentUser);
+
    }
 
   public onLogin() {
